@@ -1,18 +1,27 @@
 package modelos;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "tb_produto")
 public class Produto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "prod_nome", length = 100, nullable = false)
 	private String nome;
+	
+	@Column(name = "prod_modelo", length = 100, nullable = true)
 	private String modelo;
+	
+	@Column(name = "prod_preco", nullable = false, precision = 11, scale = 2)
 	private double valor;
 	
 	public Produto() {
