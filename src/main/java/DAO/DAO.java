@@ -1,4 +1,4 @@
-package modelosDAO;
+package DAO;
 
 import java.util.List;
 
@@ -57,6 +57,7 @@ public class DAO <E>{
 			throw new UnsupportedOperationException("Classe nula.");	
 		}
 		
+		//jpql java persistence query language
 		String jpql = "select e from " + classe.getName() + " e";
 		TypedQuery<E> query = em.createQuery(jpql, classe);
 		query.setMaxResults(qtde);
